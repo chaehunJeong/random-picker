@@ -4,31 +4,31 @@
 
     <!-- 메인 페이지 -->
     <url>
-        <loc>https://randompicker.com/</loc>
+        <loc>https://random-picker-659.pages.dev/</loc>
         <lastmod>2026-01-13</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
-        <xhtml:link rel="alternate" hreflang="ko" href="https://randompicker.com/?lang=ko"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://randompicker.com/?lang=en"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://randompicker.com/?lang=ja"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://randompicker.com/?lang=zh"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://random-picker-659.pages.dev/?lang=ko"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://random-picker-659.pages.dev/?lang=en"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://random-picker-659.pages.dev/?lang=ja"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://random-picker-659.pages.dev/?lang=zh"/>
     </url>
 
     <!-- 사용법 페이지 -->
     <url>
-        <loc>https://randompicker.com/how-to-use.html</loc>
+        <loc>https://random-picker-659.pages.dev/how-to-use.html</loc>
         <lastmod>2026-01-13</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="ko" href="https://randompicker.com/how-to-use.html?lang=ko"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://randompicker.com/how-to-use.html?lang=en"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://randompicker.com/how-to-use.html?lang=ja"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://randompicker.com/how-to-use.html?lang=zh"/>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://random-picker-659.pages.dev/how-to-use.html?lang=ko"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://random-picker-659.pages.dev/how-to-use.html?lang=en"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://random-picker-659.pages.dev/how-to-use.html?lang=ja"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://random-picker-659.pages.dev/how-to-use.html?lang=zh"/>
     </url>
 
     <!-- 개인정보 처리방침 -->
     <url>
-        <loc>https://randompicker.com/privacy.html</loc>
+        <loc>https://random-picker-659.pages.dev/privacy.html</loc>
         <lastmod>2026-01-13</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
@@ -36,7 +36,7 @@
 
     <!-- 이용약관 -->
     <url>
-        <loc>https://randompicker.com/terms.html</loc>
+        <loc>https://random-picker-659.pages.dev/terms.html</loc>
         <lastmod>2026-01-13</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
