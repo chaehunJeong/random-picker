@@ -1,26 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
     <!-- 메인 페이지 -->
     <url>
         <loc>https://randompicker.com/</loc>
-        <lastmod>2026-01-12</lastmod>
+        <lastmod>2026-01-13</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://randompicker.com/?lang=ko"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://randompicker.com/?lang=en"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://randompicker.com/?lang=ja"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://randompicker.com/?lang=zh"/>
+    </url>
+
+    <!-- 사용법 페이지 -->
+    <url>
+        <loc>https://randompicker.com/how-to-use.html</loc>
+        <lastmod>2026-01-13</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="ko" href="https://randompicker.com/how-to-use.html?lang=ko"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://randompicker.com/how-to-use.html?lang=en"/>
+        <xhtml:link rel="alternate" hreflang="ja" href="https://randompicker.com/how-to-use.html?lang=ja"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://randompicker.com/how-to-use.html?lang=zh"/>
     </url>
 
     <!-- 개인정보 처리방침 -->
     <url>
         <loc>https://randompicker.com/privacy.html</loc>
-        <lastmod>2026-01-12</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2026-01-13</lastmod>
+        <changefreq>yearly</changefreq>
         <priority>0.5</priority>
     </url>
 
     <!-- 이용약관 -->
     <url>
         <loc>https://randompicker.com/terms.html</loc>
-        <lastmod>2026-01-12</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2026-01-13</lastmod>
+        <changefreq>yearly</changefreq>
         <priority>0.5</priority>
     </url>
+
 </urlset>
