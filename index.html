@@ -109,65 +109,6 @@
                 </div>
             </section>
 
-            <!-- 업로드 섹션 -->
-            <section id="upload-section" class="section">
-                <div class="upload-area">
-                    <div class="upload-icon">📸</div>
-                    <h2>사진을 선택해주세요</h2>
-                    <p>최소 2장, 최대 20장까지 가능해요</p>
-
-                    <div class="upload-buttons">
-                        <label for="file-input" class="btn btn-primary">
-                            📁 갤러리에서 선택
-                        </label>
-                        <label for="camera-input" class="btn btn-secondary">
-                            📷 사진 촬영
-                        </label>
-                    </div>
-
-                    <input
-                        type="file"
-                        id="file-input"
-                        accept="image/*"
-                        multiple
-                        style="display: none;"
-                    >
-                    <input
-                        type="file"
-                        id="camera-input"
-                        accept="image/*"
-                        capture="environment"
-                        multiple
-                        style="display: none;"
-                    >
-                </div>
-
-                <!-- 이미지 미리보기 그리드 -->
-                <div id="preview-container" class="preview-container hidden">
-                    <h3>업로드된 사진 (<span id="image-count">0</span>장)</h3>
-                    <div id="image-grid" class="image-grid"></div>
-                    <button id="select-btn" class="btn btn-large btn-primary">
-                        🎯 랜덤 선택하기
-                    </button>
-                </div>
-            </section>
-
-            <!-- 결과 섹션 -->
-            <section id="result-section" class="section hidden">
-                <div class="result-container">
-                    <h2>🎉 선택된 결과</h2>
-                    <div id="result-image" class="result-image"></div>
-                    <div class="result-buttons">
-                        <button id="retry-btn" class="btn btn-secondary">
-                            🔄 다시 뽑기
-                        </button>
-                        <button id="new-btn" class="btn btn-primary">
-                            ✨ 새로운 사진으로 시작
-                        </button>
-                    </div>
-                </div>
-            </section>
-
             <!-- 사용법 섹션 -->
             <section class="how-it-works section">
                 <h2 data-i18n="howItWorksTitle">📖 사용법 (3단계로 끝!)</h2>
@@ -467,12 +408,71 @@
                 </div>
             </section>
 
+            <!-- 업로드 섹션 -->
+            <section id="upload-section" class="section">
+                <div class="upload-area">
+                    <div class="upload-icon">📸</div>
+                    <h2>사진을 선택해주세요</h2>
+                    <p>최소 2장, 최대 20장까지 가능해요</p>
+
+                    <div class="upload-buttons">
+                        <label for="file-input" class="btn btn-primary">
+                            📁 갤러리에서 선택
+                        </label>
+                        <label for="camera-input" class="btn btn-secondary">
+                            📷 사진 촬영
+                        </label>
+                    </div>
+
+                    <input
+                        type="file"
+                        id="file-input"
+                        accept="image/*"
+                        multiple
+                        style="display: none;"
+                    >
+                    <input
+                        type="file"
+                        id="camera-input"
+                        accept="image/*"
+                        capture="environment"
+                        multiple
+                        style="display: none;"
+                    >
+                </div>
+
+                <!-- 이미지 미리보기 그리드 -->
+                <div id="preview-container" class="preview-container hidden">
+                    <h3>업로드된 사진 (<span id="image-count">0</span>장)</h3>
+                    <div id="image-grid" class="image-grid"></div>
+                    <button id="select-btn" class="btn btn-large btn-primary">
+                        🎯 랜덤 선택하기
+                    </button>
+                </div>
+            </section>
+
+            <!-- 결과 섹션 -->
+            <section id="result-section" class="section hidden">
+                <div class="result-container">
+                    <h2>🎉 선택된 결과</h2>
+                    <div id="result-image" class="result-image"></div>
+                    <div class="result-buttons">
+                        <button id="retry-btn" class="btn btn-secondary">
+                            🔄 다시 뽑기
+                        </button>
+                        <button id="new-btn" class="btn btn-primary">
+                            ✨ 새로운 사진으로 시작
+                        </button>
+                    </div>
+                </div>
+            </section>
+
             <!-- CTA 섹션 -->
             <section class="cta section">
                 <div class="cta-content">
                     <h2 data-i18n="ctaTitle">🎉 지금 바로 시작해보세요!</h2>
                     <p data-i18n="ctaDesc">결정 장애로 고민하는 시간을 줄이고, 더 중요한 일에 집중하세요</p>
-                    <button onclick="document.getElementById('file-input').click()" class="btn btn-large btn-primary" style="margin: 20px auto 0;" data-i18n="ctaButton">
+                    <button onclick="document.getElementById('upload-section').scrollIntoView({behavior: 'smooth'})" class="btn btn-large btn-primary" style="margin: 20px auto 0;" data-i18n="ctaButton">
                         📸 사진 업로드하고 시작하기
                     </button>
                     <p style="font-size: 0.9rem; color: #666; margin-top: 15px;" data-i18n="ctaSubtext">회원가입 없이 바로 사용 가능 • 완전 무료</p>
