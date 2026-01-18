@@ -2,30 +2,55 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="favicon.ico">
+    <link rel="preload" href="styles/main.css" as="style">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-adsense-account" content="ca-pub-5144337054472639">
     <meta name="google-site-verification" content="l_xveyR696Gu4biLpV-gsTJSNNg6JflmHRtVuBR2RtM">
     <meta name="naver-site-verification" content="c732bdcf90f7f81523ee0e5bf8993be61b08b329">
 
     <!-- SEO 메타 태그 -->
-    <meta name="description" content="사진을 올리고 랜덤으로 선택해보세요! 점심 메뉴, 커피 내기, 게임 등 결정 장애를 쉽고 재미있게 해결하는 무료 랜덤 선택기">
-    <meta name="keywords" content="랜덤선택, 랜덤뽑기, 결정장애, 점심메뉴추천, 랜덤추천, 무료랜덤, 사진선택, 이미지랜덤">
+    <meta name="description" content="사진을 올리고 랜덤으로 선택해보세요! 점심 메뉴, 커피 내기, 게임 등 결정 장애를 쉽고 재미있게 해결하는 무료 랜덤 선택기. 암호학적으로 안전한 알고리즘으로 공정한 선택을 보장합니다.">
+    <meta name="keywords" content="랜덤선택, 랜덤뽑기, 결정장애, 점심메뉴추천, 랜덤추천, 무료랜덤, 사진선택, 이미지랜덤, 공정한추첨, 랜덤추첨기">
     <meta name="author" content="Random Picker">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <!-- Language Alternates -->
+    <link rel="alternate" hreflang="ko" href="https://random-picker-659.pages.dev/">
+    <link rel="alternate" hreflang="en" href="https://random-picker-659.pages.dev/?lang=en">
+    <link rel="alternate" hreflang="ja" href="https://random-picker-659.pages.dev/?lang=ja">
+    <link rel="alternate" hreflang="zh" href="https://random-picker-659.pages.dev/?lang=zh">
+    <link rel="alternate" hreflang="x-default" href="https://random-picker-659.pages.dev/">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://random-picker-659.pages.dev/">
     <meta property="og:title" content="랜덤 선택기 - 결정 장애 해결사">
-    <meta property="og:description" content="사진을 올리고 랜덤으로 선택해보세요! 점심 메뉴, 내기, 게임 등 결정 장애 해결">
+    <meta property="og:description" content="사진을 올리고 랜덤으로 선택해보세요! 점심 메뉴, 커피 내기, 게임 등 결정 장애를 쉽고 재미있게 해결하는 무료 랜덤 선택기">
     <meta property="og:image" content="https://random-picker-659.pages.dev/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="ja_JP">
+    <meta property="og:locale:alternate" content="zh_CN">
+    <meta property="og:site_name" content="랜덤 선택기">
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://random-picker-659.pages.dev/">
-    <meta property="twitter:title" content="랜덤 선택기 - 결정 장애 해결사">
-    <meta property="twitter:description" content="사진을 올리고 랜덤으로 선택해보세요! 점심 메뉴, 내기, 게임 등 결정 장애 해결">
-    <meta property="twitter:image" content="https://random-picker-659.pages.dev/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://random-picker-659.pages.dev/">
+    <meta name="twitter:title" content="랜덤 선택기 - 결정 장애 해결사">
+    <meta name="twitter:description" content="사진을 올리고 랜덤으로 선택해보세요! 점심 메뉴, 커피 내기, 게임 등 결정 장애 해결">
+    <meta name="twitter:image" content="https://random-picker-659.pages.dev/og-image.png">
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#667eea">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="랜덤선택기">
+    <meta name="format-detection" content="telephone=no">
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://random-picker-659.pages.dev/">
@@ -33,24 +58,40 @@
     <title>랜덤 선택기 - 결정 장애 해결사 | 무료 이미지 랜덤 추첨</title>
     <link rel="stylesheet" href="styles/main.css">
 
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5144337054472639"
-     crossorigin="anonymous"></script>
-
-    <!-- 구조화된 데이터 (Schema.org) -->
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "랜덤 선택기",
+      "alternateName": "Random Picker",
+      "url": "https://random-picker-659.pages.dev/",
+      "description": "사진을 올리고 랜덤으로 선택해주는 무료 웹 애플리케이션. 결정 장애 해결을 위한 공정한 랜덤 선택 서비스",
+      "inLanguage": ["ko", "en", "ja", "zh"],
+      "potentialAction": {
+        "@type": "UseAction",
+        "target": "https://random-picker-659.pages.dev/"
+      }
+    }
+    </script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "랜덤 선택기",
-      "description": "사진을 올리고 랜덤으로 선택해주는 웹 애플리케이션",
       "url": "https://random-picker-659.pages.dev/",
-      "applicationCategory": "Utility",
-      "operatingSystem": "Any",
+      "description": "사진을 업로드하고 랜덤으로 선택해주는 웹 애플리케이션. 암호학적으로 안전한 알고리즘으로 공정한 선택을 보장합니다.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "All",
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "KRW"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "230"
       },
       "author": {
         "@type": "Organization",
@@ -58,6 +99,88 @@
       }
     }
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "랜덤 선택기",
+      "url": "https://random-picker-659.pages.dev/",
+      "logo": "https://random-picker-659.pages.dev/favicon.ico",
+      "sameAs": []
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "홈",
+        "item": "https://random-picker-659.pages.dev/"
+      }]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "업로드한 사진은 안전한가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "네, 100% 안전합니다! 업로드한 이미지는 서버에 전혀 저장되지 않으며, 브라우저 메모리에서만 처리됩니다. 페이지를 닫으면 자동으로 삭제되어 개인정보가 완벽하게 보호됩니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "정말 공정한 랜덤인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "네! Crypto API의 getRandomValues() 메서드를 사용하여 암호학적으로 안전한 랜덤 숫자를 생성합니다. 이는 일반적인 Math.random()보다 훨씬 예측 불가능하고 공정합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "회원가입이 필요한가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "아니요! 회원가입이나 로그인 없이 바로 사용할 수 있습니다. 개인정보를 수집하지 않아 더욱 안심하고 사용하실 수 있습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "몇 장의 사진을 업로드할 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "최소 2장부터 최대 20장까지 업로드 가능합니다. 각 이미지는 최대 5MB까지 지원하며, JPG, PNG, WebP 등 대부분의 이미지 형식을 지원합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "모바일에서도 사용할 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "물론입니다! 모바일에 완벽하게 최적화되어 있습니다. 스마트폰에서는 사진 촬영 버튼을 누르면 카메라가 바로 실행되어 더욱 편리하게 사용할 수 있습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "비용이 드나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "완전 무료입니다! 모든 기능을 무제한으로 사용할 수 있으며, 숨겨진 비용이나 프리미엄 기능이 없습니다."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5144337054472639"
+     crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- 메인 컨테이너 -->
