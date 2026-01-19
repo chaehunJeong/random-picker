@@ -5,7 +5,7 @@
     <!-- 메인 페이지 -->
     <url>
         <loc>https://random-picker-659.pages.dev/</loc>
-        <lastmod>2026-01-13</lastmod>
+        <lastmod>2026-01-19</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <xhtml:link rel="alternate" hreflang="ko" href="https://random-picker-659.pages.dev/?lang=ko"/>
@@ -17,7 +17,7 @@
     <!-- 사용법 페이지 -->
     <url>
         <loc>https://random-picker-659.pages.dev/how-to-use.html</loc>
-        <lastmod>2026-01-13</lastmod>
+        <lastmod>2026-01-19</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
         <xhtml:link rel="alternate" hreflang="ko" href="https://random-picker-659.pages.dev/how-to-use.html?lang=ko"/>
@@ -29,7 +29,7 @@
     <!-- 개인정보 처리방침 -->
     <url>
         <loc>https://random-picker-659.pages.dev/privacy.html</loc>
-        <lastmod>2026-01-13</lastmod>
+        <lastmod>2026-01-19</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
     </url>
@@ -37,7 +37,7 @@
     <!-- 이용약관 -->
     <url>
         <loc>https://random-picker-659.pages.dev/terms.html</loc>
-        <lastmod>2026-01-13</lastmod>
+        <lastmod>2026-01-19</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
     </url>

@@ -1,13 +1,36 @@
+# robots.txt for Random Picker
+# https://random-picker-659.pages.dev/
+
 # 모든 검색엔진 크롤러 허용
 User-agent: *
 Allow: /
 
-# 사이트맵 위치
+# Sitemap location
 Sitemap: https://random-picker-659.pages.dev/sitemap.xml
 
-# 크롤링 속도 조절 (선택사항)
+# Crawl-delay for polite crawling
 Crawl-delay: 1
 
-# 특정 파일/폴더 제외 (필요시)
+# Google
+User-agent: Googlebot
+Allow: /
+
+# Google Image Bot
+User-agent: Googlebot-Image
+Allow: /
+
+# Naver
+User-agent: Yeti
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+
+# Daum
+User-agent: Daumoa
+Allow: /
+
+# Block sensitive paths (if any in future)
 # Disallow: /admin/
 # Disallow: /private/
