@@ -1,0 +1,36 @@
+# HTTP Security Headers for Random Picker
+# https://random-picker-659.pages.dev/
+
+# Global security headers for all paths
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Content-Security-Policy: upgrade-insecure-requests
+
+# Cache control for HTML files (no cache)
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Cache control for CSS files (1 year)
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache control for JavaScript files (1 year)
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache control for SVG files (1 year)
+/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache control for ICO files (1 year)
+/*.ico
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache control for PNG images (1 year)
+/*.png
+  Cache-Control: public, max-age=31536000, immutable
