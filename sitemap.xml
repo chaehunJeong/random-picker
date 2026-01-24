@@ -5,7 +5,7 @@
     <!-- 메인 페이지 -->
     <url>
         <loc>https://random-picker-659.pages.dev/</loc>
-        <lastmod>2026-01-19</lastmod>
+        <lastmod>2026-01-24</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
         <xhtml:link rel="alternate" hreflang="ko" href="https://random-picker-659.pages.dev/?lang=ko"/>
@@ -14,22 +14,90 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://random-picker-659.pages.dev/?lang=zh"/>
     </url>
 
+    <!-- 소개 페이지 -->
+    <url>
+        <loc>https://random-picker-659.pages.dev/about.html</loc>
+        <lastmod>2026-01-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- 연락처 페이지 -->
+    <url>
+        <loc>https://random-picker-659.pages.dev/contact.html</loc>
+        <lastmod>2026-01-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
     <!-- 사용법 페이지 -->
     <url>
         <loc>https://random-picker-659.pages.dev/how-to-use.html</loc>
-        <lastmod>2026-01-19</lastmod>
+        <lastmod>2026-01-24</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
-        <xhtml:link rel="alternate" hreflang="ko" href="https://random-picker-659.pages.dev/how-to-use.html?lang=ko"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://random-picker-659.pages.dev/how-to-use.html?lang=en"/>
-        <xhtml:link rel="alternate" hreflang="ja" href="https://random-picker-659.pages.dev/how-to-use.html?lang=ja"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://random-picker-659.pages.dev/how-to-use.html?lang=zh"/>
+    </url>
+
+    <!-- 정보성 콘텐츠: 결정 장애 -->
+    <url>
+        <loc>https://random-picker-659.pages.dev/decision-fatigue.html</loc>
+        <lastmod>2026-01-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- 정보성 콘텐츠: 랜덤 선택의 심리학 -->
+    <url>
+        <loc>https://random-picker-659.pages.dev/random-psychology.html</loc>
+        <lastmod>2026-01-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- 정보성 콘텐츠: 공정한 추첨 방법 -->
+    <url>
+        <loc>https://random-picker-659.pages.dev/fair-drawing.html</loc>
+        <lastmod>2026-01-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- 정보성 콘텐츠: 랜덤 알고리즘의 원리 -->
+    <url>
+        <loc>https://random-picker-659.pages.dev/random-algorithm.html</loc>
+        <lastmod>2026-01-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- 가이드: 점심 메뉴 선택 -->
+    <url>
+        <loc>https://random-picker-659.pages.dev/guide-lunch.html</loc>
+        <lastmod>2026-01-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- 가이드: 커피 내기 -->
+    <url>
+        <loc>https://random-picker-659.pages.dev/guide-coffee.html</loc>
+        <lastmod>2026-01-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- 가이드: 팀 회식 장소 -->
+    <url>
+        <loc>https://random-picker-659.pages.dev/guide-team.html</loc>
+        <lastmod>2026-01-24</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
     </url>
 
     <!-- 개인정보 처리방침 -->
     <url>
         <loc>https://random-picker-659.pages.dev/privacy.html</loc>
-        <lastmod>2026-01-19</lastmod>
+        <lastmod>2026-01-24</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
     </url>
@@ -37,9 +105,17 @@
     <!-- 이용약관 -->
     <url>
         <loc>https://random-picker-659.pages.dev/terms.html</loc>
-        <lastmod>2026-01-19</lastmod>
+        <lastmod>2026-01-24</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.5</priority>
+    </url>
+
+    <!-- 404 페이지 -->
+    <url>
+        <loc>https://random-picker-659.pages.dev/404.html</loc>
+        <lastmod>2026-01-24</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.3</priority>
     </url>
 
 </urlset>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-adsense-account" content="ca-pub-5144337054472639">
+
+    <!-- SEO 메타 태그 -->
+    <meta name="description" content="랜덤 알고리즘의 원리 - 컴퓨터는 어떻게 랜덤 숫자를 만들까? 의사 난수, 진성 난수, Web Crypto API까지 랜덤의 과학을 쉽게 설명합니다.">
+    <meta name="keywords" content="랜덤알고리즘, 난수생성, 의사난수, PRNG, CSPRNG, Crypto API, 랜덤원리">
+    <meta name="author" content="Random Picker">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://random-picker-659.pages.dev/random-algorithm.html">
+    <meta property="og:title" content="랜덤 알고리즘의 원리 - 컴퓨터는 어떻게 랜덤을 만들까?">
+    <meta property="og:description" content="의사 난수부터 암호학적 난수까지, 랜덤 생성의 과학을 쉽게 설명합니다.">
+    <meta property="og:image" content="https://random-picker-659.pages.dev/og-image.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://random-picker-659.pages.dev/random-algorithm.html">
+
+    <title>랜덤 알고리즘의 원리 - 컴퓨터는 어떻게 랜덤을 만들까? | 랜덤 선택기</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/page.css">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5144337054472639"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <nav class="breadcrumb">
+            <a href="index.html">홈</a> > <a href="about.html">소개</a> > <span>랜덤 알고리즘</span>
+        </nav>
+
+        <div class="page-content">
+            <h1>🔢 랜덤 알고리즘의 원리</h1>
+            <p class="last-updated">컴퓨터는 어떻게 랜덤을 만들까?</p>
+
+            <section>
+                <h2>들어가며: 랜덤은 정말 랜덤일까?</h2>
+                <p style="line-height: 1.9;">
+                    "랜덤"이라는 단어를 들으면 무엇이 떠오르시나요?
+                    주사위를 굴리거나, 동전을 던지거나, 복권 번호를 뽑는 장면?
+                </p>
+                <p style="line-height: 1.9; margin-top: 15px;">
+                    컴퓨터에서의 랜덤은 조금 다릅니다. 컴퓨터는 기본적으로 <strong>결정론적(deterministic)</strong>인
+                    기계입니다. 같은 입력에는 항상 같은 출력을 내놓습니다.
+                    그렇다면 어떻게 "무작위"를 만들어낼 수 있을까요?
+                </p>
+                <p style="line-height: 1.9; margin-top: 15px;">
+                    이 글에서는 컴퓨터가 랜덤 숫자를 생성하는 원리를 쉽게 설명합니다.
+                </p>
+            </section>
+
+            <section>
+                <h2>의사 난수 (Pseudo-Random Numbers)</h2>
+
+                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 15px; margin: 25px 0;">
+                    <h3 style="color: white; margin-bottom: 15px;">📖 정의</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8;">
+                        <strong>의사 난수(Pseudo-random number)</strong>는 수학적 알고리즘으로 생성되는 숫자 시퀀스입니다.
+                        "의사(pseudo)"라는 말은 "진짜처럼 보이지만 진짜는 아닌"이라는 의미입니다.
+                    </p>
+                </div>
+
+                <h3>어떻게 작동하나요?</h3>
+                <p style="line-height: 1.9; margin-top: 15px;">
+                    의사 난수 생성기(PRNG: Pseudo-Random Number Generator)는 <strong>시드(seed)</strong>라는 초기값을 받아서
+                    수학적 공식에 따라 숫자를 생성합니다. 같은 시드를 넣으면 항상 같은 숫자 시퀀스가 나옵니다.
+                </p>
+
+                <div style="background: #1a1a2e; color: #eee; padding: 25px; border-radius: 12px; margin-top: 25px;">
+                    <h4 style="color: #4facfe; margin-bottom: 15px;">간단한 PRNG 예시 (선형 합동 생성기)</h4>
+                    <div style="background: #16213e; padding: 20px; border-radius: 8px; font-family: monospace; overflow-x: auto;">
+                        <pre style="margin: 0; line-height: 1.6;">// 선형 합동 생성기 (Linear Congruential Generator)
+// X(n+1) = (a * X(n) + c) mod m
+
+let seed = 12345;  // 시드값
+const a = 1103515245;
+const c = 12345;
+const m = 2 ** 31;
+
+function nextRandom() {
+    seed = (a * seed + c) % m;
+    return seed / m;  // 0~1 사이 값 반환
+}</pre>
+                    </div>
+                    <p style="margin-top: 15px; color: #aaa; line-height: 1.7;">
+                        이 공식은 매우 단순하지만, 많은 프로그래밍 언어의 초기 랜덤 함수가 이와 비슷한 방식을 사용했습니다.
+                    </p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 25px;">
+                    <div style="background: #e8f5e9; padding: 20px; border-radius: 10px;">
+                        <h4 style="color: #2e7d32; margin-bottom: 10px;">✅ 장점</h4>
+                        <ul style="line-height: 1.8;">
+                            <li>매우 빠른 생성 속도</li>
+                            <li>재현 가능 (디버깅에 유용)</li>
+                            <li>메모리 효율적</li>
+                        </ul>
+                    </div>
+                    <div style="background: #ffebee; padding: 20px; border-radius: 10px;">
+                        <h4 style="color: #c62828; margin-bottom: 10px;">❌ 단점</h4>
+                        <ul style="line-height: 1.8;">
+                            <li>시드를 알면 예측 가능</li>
+                            <li>패턴이 반복될 수 있음</li>
+                            <li>보안에 취약</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>진성 난수 (True Random Numbers)</h2>
+
+                <p style="line-height: 1.9;">
+                    진정한 랜덤은 물리적 현상에서 옵니다. 자연에는 본질적으로 예측 불가능한 현상들이 있습니다.
+                </p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 25px;">
+                    <div style="background: #f8f9ff; padding: 25px; border-radius: 12px;">
+                        <h4 style="color: #667eea; margin-bottom: 12px;">🌡️ 열 잡음</h4>
+                        <p style="line-height: 1.7;">
+                            전자 회로의 저항에서 발생하는 미세한 전압 변동.
+                            양자역학적 현상으로 완전히 예측 불가능합니다.
+                        </p>
+                    </div>
+
+                    <div style="background: #f0fdf4; padding: 25px; border-radius: 12px;">
+                        <h4 style="color: #10b981; margin-bottom: 12px;">⚛️ 방사성 붕괴</h4>
+                        <p style="line-height: 1.7;">
+                            원자핵의 붕괴 시점은 양자역학적으로 완전히 무작위입니다.
+                            가장 완벽한 랜덤 소스 중 하나입니다.
+                        </p>
+                    </div>
+
+                    <div style="background: #fff8e1; padding: 25px; border-radius: 12px;">
+                        <h4 style="color: #f59e0b; margin-bottom: 12px;">💡 광자 도착 시간</h4>
+                        <p style="line-height: 1.7;">
+                            광자가 센서에 도착하는 정확한 시간은 예측 불가능합니다.
+                            양자 난수 생성기에서 사용됩니다.
+                        </p>
+                    </div>
+
+                    <div style="background: #fce4ec; padding: 25px; border-radius: 12px;">
+                        <h4 style="color: #ad1457; margin-bottom: 12px;">🌪️ 대기 잡음</h4>
+                        <p style="line-height: 1.7;">
+                            라디오 주파수의 대기 잡음.
+                            random.org 같은 서비스가 이것을 사용합니다.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>암호학적 난수 생성기 (CSPRNG)</h2>
+
+                <div style="background: #1a1a2e; color: #eee; padding: 30px; border-radius: 12px; margin-top: 20px;">
+                    <h3 style="color: #10b981; margin-bottom: 20px;">🔐 CSPRNG란?</h3>
+                    <p style="line-height: 1.9; margin-bottom: 20px;">
+                        <strong>CSPRNG(Cryptographically Secure Pseudo-Random Number Generator)</strong>는
+                        의사 난수 생성기의 속도와 진성 난수의 보안성을 결합한 것입니다.
+                    </p>
+
+                    <div style="background: #16213e; padding: 20px; border-radius: 8px;">
+                        <h4 style="color: #4facfe; margin-bottom: 15px;">핵심 원리</h4>
+                        <ol style="line-height: 2;">
+                            <li><strong>엔트로피 수집</strong>: 하드웨어에서 무작위 데이터(마우스 움직임, 키보드 입력 타이밍, 디스크 I/O 등) 수집</li>
+                            <li><strong>엔트로피 풀</strong>: 수집된 무작위 데이터를 안전하게 저장</li>
+                            <li><strong>암호학적 확장</strong>: 엔트로피 풀의 데이터를 암호학적 알고리즘으로 확장하여 난수 생성</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div style="margin-top: 25px;">
+                    <h3>운영체제별 CSPRNG</h3>
+                    <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+                        <thead>
+                            <tr style="background: #667eea; color: white;">
+                                <th style="padding: 15px; text-align: left;">운영체제</th>
+                                <th style="padding: 15px; text-align: left;">API</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background: #f9fafb;">
+                                <td style="padding: 15px;">Windows</td>
+                                <td style="padding: 15px; font-family: monospace;">CryptGenRandom, BCryptGenRandom</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 15px;">Linux</td>
+                                <td style="padding: 15px; font-family: monospace;">/dev/urandom, getrandom()</td>
+                            </tr>
+                            <tr style="background: #f9fafb;">
+                                <td style="padding: 15px;">macOS</td>
+                                <td style="padding: 15px; font-family: monospace;">/dev/urandom, SecRandomCopyBytes</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 15px;">브라우저</td>
+                                <td style="padding: 15px; font-family: monospace;">crypto.getRandomValues()</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section>
+                <h2>Web Crypto API 자세히 보기</h2>
+
+                <p style="line-height: 1.9;">
+                    랜덤 선택기가 사용하는 <strong>Web Crypto API</strong>는 브라우저에서 제공하는 암호학적 API입니다.
+                </p>
+
+                <div style="background: #f8f9ff; padding: 30px; border-radius: 15px; margin-top: 25px;">
+                    <h3 style="color: #667eea; margin-bottom: 20px;">사용 방법</h3>
+
+                    <div style="background: #1a1a2e; color: #eee; padding: 20px; border-radius: 8px; font-family: monospace; overflow-x: auto;">
+                        <pre style="margin: 0; line-height: 1.6;">// 1. 랜덤 바이트 배열 생성
+const randomBytes = new Uint8Array(16);
+crypto.getRandomValues(randomBytes);
+// 결과: [142, 87, 203, 51, ...]
+
+// 2. 랜덤 32비트 정수
+const randomInt = new Uint32Array(1);
+crypto.getRandomValues(randomInt);
+console.log(randomInt[0]);  // 0 ~ 4294967295 사이의 값
+
+// 3. 0~max 사이의 랜덤 인덱스 (랜덤 선택기 방식)
+function getSecureRandomIndex(max) {
+    const array = new Uint32Array(1);
+    crypto.getRandomValues(array);
+    return array[0] % max;
+}
+
+// 사용 예시: 5개 중 하나 선택
+const selectedIndex = getSecureRandomIndex(5);  // 0, 1, 2, 3, 4 중 하나</pre>
+                    </div>
+
+                    <div style="margin-top: 25px;">
+                        <h4 style="color: #667eea; margin-bottom: 15px;">왜 Math.random() 대신 이것을 쓸까?</h4>
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <thead>
+                                <tr style="background: #667eea; color: white;">
+                                    <th style="padding: 12px; text-align: left;">특성</th>
+                                    <th style="padding: 12px; text-align: center;">Math.random()</th>
+                                    <th style="padding: 12px; text-align: center;">crypto.getRandomValues()</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="background: #f9fafb;">
+                                    <td style="padding: 12px;">예측 가능성</td>
+                                    <td style="padding: 12px; text-align: center;">이론적으로 가능</td>
+                                    <td style="padding: 12px; text-align: center;">불가능</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 12px;">보안 용도</td>
+                                    <td style="padding: 12px; text-align: center;">❌ 부적합</td>
+                                    <td style="padding: 12px; text-align: center;">✅ 적합</td>
+                                </tr>
+                                <tr style="background: #f9fafb;">
+                                    <td style="padding: 12px;">속도</td>
+                                    <td style="padding: 12px; text-align: center;">매우 빠름</td>
+                                    <td style="padding: 12px; text-align: center;">빠름</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 12px;">엔트로피 소스</td>
+                                    <td style="padding: 12px; text-align: center;">알고리즘</td>
+                                    <td style="padding: 12px; text-align: center;">OS + 하드웨어</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>랜덤의 "품질" 측정</h2>
+
+                <p style="line-height: 1.9;">
+                    랜덤 숫자가 정말 랜덤한지 어떻게 알 수 있을까요? 여러 가지 통계적 테스트가 있습니다.
+                </p>
+
+                <div style="display: grid; gap: 20px; margin-top: 25px;">
+                    <div style="background: white; border: 2px solid #667eea; border-radius: 12px; padding: 25px;">
+                        <h3 style="color: #667eea; margin-bottom: 12px;">📊 균등 분포 테스트</h3>
+                        <p style="line-height: 1.8;">
+                            모든 값이 비슷한 빈도로 나타나는지 확인합니다.
+                            예를 들어 0~9 사이의 숫자를 10,000번 생성했을 때,
+                            각 숫자가 약 1,000번씩 나와야 합니다.
+                        </p>
+                    </div>
+
+                    <div style="background: white; border: 2px solid #10b981; border-radius: 12px; padding: 25px;">
+                        <h3 style="color: #10b981; margin-bottom: 12px;">🔗 연속성 테스트</h3>
+                        <p style="line-height: 1.8;">
+                            연속된 숫자들 사이에 상관관계가 없어야 합니다.
+                            1 다음에 2가 더 자주 나온다면, 그것은 좋은 랜덤이 아닙니다.
+                        </p>
+                    </div>
+
+                    <div style="background: white; border: 2px solid #f59e0b; border-radius: 12px; padding: 25px;">
+                        <h3 style="color: #f59e0b; margin-bottom: 12px;">📈 런 테스트 (Run Test)</h3>
+                        <p style="line-height: 1.8;">
+                            연속으로 증가하거나 감소하는 시퀀스(런)의 길이가 적절해야 합니다.
+                            너무 긴 런이나 너무 짧은 런이 많으면 문제가 있습니다.
+                        </p>
+                    </div>
+
+                    <div style="background: white; border: 2px solid #ef4444; border-radius: 12px; padding: 25px;">
+                        <h3 style="color: #ef4444; margin-bottom: 12px;">🎯 NIST 테스트 스위트</h3>
+                        <p style="line-height: 1.8;">
+                            미국 국립표준기술연구소(NIST)가 개발한 포괄적인 랜덤성 테스트 세트.
+                            15가지 이상의 통계적 테스트를 포함합니다.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>재미있는 사실들</h2>
+
+                <div style="margin-top: 25px;">
+                    <div style="background: #f9fafb; padding: 25px; border-radius: 12px; margin-bottom: 15px; display: flex; gap: 20px; align-items: flex-start;">
+                        <div style="font-size: 2.5rem;">🎰</div>
+                        <div>
+                            <h4 style="color: #667eea; margin-bottom: 8px;">온라인 카지노의 랜덤</h4>
+                            <p style="line-height: 1.8;">
+                                합법적인 온라인 카지노는 CSPRNG를 사용해야 하며,
+                                독립 기관의 인증을 받아야 합니다. 부정행위를 방지하기 위해
+                                랜덤 생성 로그를 모두 보관해야 합니다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div style="background: #f9fafb; padding: 25px; border-radius: 12px; margin-bottom: 15px; display: flex; gap: 20px; align-items: flex-start;">
+                        <div style="font-size: 2.5rem;">🔮</div>
+                        <div>
+                            <h4 style="color: #667eea; margin-bottom: 8px;">양자 컴퓨터와 랜덤</h4>
+                            <p style="line-height: 1.8;">
+                                양자 컴퓨터는 양자역학의 불확정성을 이용하여
+                                진정한 랜덤을 생성할 수 있습니다. 현재의 암호학적 랜덤보다
+                                훨씬 더 "진짜" 랜덤입니다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div style="background: #f9fafb; padding: 25px; border-radius: 12px; margin-bottom: 15px; display: flex; gap: 20px; align-items: flex-start;">
+                        <div style="font-size: 2.5rem;">🎮</div>
+                        <div>
+                            <h4 style="color: #667eea; margin-bottom: 8px;">게임에서의 "가짜" 랜덤</h4>
+                            <p style="line-height: 1.8;">
+                                일부 게임은 의도적으로 "진짜" 랜덤을 사용하지 않습니다.
+                                플레이어가 너무 운이 나쁘면 몰래 확률을 높여주는
+                                "자비 시스템"을 구현하기도 합니다. 이것을 "pity system"이라고 합니다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div style="background: #f9fafb; padding: 25px; border-radius: 12px; display: flex; gap: 20px; align-items: flex-start;">
+                        <div style="font-size: 2.5rem;">📱</div>
+                        <div>
+                            <h4 style="color: #667eea; margin-bottom: 8px;">스마트폰의 엔트로피</h4>
+                            <p style="line-height: 1.8;">
+                                스마트폰은 가속도계, 자이로스코프, 터치 입력, 카메라 노이즈 등
+                                다양한 소스에서 엔트로피를 수집합니다. 실제로 스마트폰을 흔들면
+                                더 많은 엔트로피가 수집됩니다!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>결론</h2>
+
+                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 15px; margin: 25px 0;">
+                    <p style="font-size: 1.15rem; line-height: 1.9;">
+                        컴퓨터의 랜덤은 수학과 물리학이 만나는 흥미로운 영역입니다.
+                        단순한 의사 난수부터 양자역학을 이용한 진성 난수까지,
+                        다양한 방법으로 "무작위"를 구현할 수 있습니다.
+                    </p>
+                    <p style="font-size: 1.15rem; line-height: 1.9; margin-top: 15px;">
+                        랜덤 선택기는 <strong>Web Crypto API</strong>를 사용하여
+                        가장 안전하고 공정한 랜덤을 제공합니다.
+                        일상의 작은 선택에도 카지노 수준의 공정성을 적용하는 것이죠!
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2>관련 글</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 20px;">
+                    <a href="fair-drawing.html" style="display: block; background: #f9fafb; padding: 20px; border-radius: 10px; text-decoration: none; color: inherit;">
+                        <strong style="color: #667eea;">⚖️ 공정한 추첨 방법</strong>
+                        <p style="color: #666; margin-top: 8px; font-size: 0.9rem;">전통적 추첨 vs 디지털 추첨</p>
+                    </a>
+                    <a href="decision-fatigue.html" style="display: block; background: #f9fafb; padding: 20px; border-radius: 10px; text-decoration: none; color: inherit;">
+                        <strong style="color: #667eea;">🧠 결정 장애란 무엇인가?</strong>
+                        <p style="color: #666; margin-top: 8px; font-size: 0.9rem;">결정 피로의 과학</p>
+                    </a>
+                    <a href="random-psychology.html" style="display: block; background: #f9fafb; padding: 20px; border-radius: 10px; text-decoration: none; color: inherit;">
+                        <strong style="color: #667eea;">🎲 랜덤 선택의 심리학</strong>
+                        <p style="color: #666; margin-top: 8px; font-size: 0.9rem;">우연에 맡기면 왜 편해질까?</p>
+                    </a>
+                </div>
+            </section>
+
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px; border-radius: 15px; text-align: center; margin-top: 40px;">
+                <h2 style="color: white; margin-bottom: 15px;">🔐 암호학적 랜덤을 경험해보세요</h2>
+                <p style="margin-bottom: 25px;">카지노 수준의 공정한 랜덤 선택</p>
+                <a href="index.html" style="display: inline-block; background: white; color: #667eea; padding: 15px 40px; border-radius: 10px; text-decoration: none; font-weight: 600;">
+                    랜덤 선택 시작하기 →
+                </a>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>© 2026 랜덤 선택기 | <a href="index.html" style="color: white;">홈으로</a> | <a href="about.html" style="color: white;">소개</a> | <a href="contact.html" style="color: white;">연락처</a></p>
+        </footer>
+    </div>
+
+    <script src="scripts/i18n.js"></script>
+</body>
+</html>
